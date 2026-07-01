@@ -14,6 +14,7 @@ class MainScreen : View("Main Screen") {
         button("Start Game") {
             action {
                 println("Game started")
+                replaceWith(GameScreen::class)
             }
         }
 

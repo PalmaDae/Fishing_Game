@@ -11,7 +11,11 @@ public class FishEntity {
         this.resistance=resistance;
     }
 
-     public void move(String n){
+    public String getName() {
+        return name;
+    }
+
+    public void move(String n){
          System.out.println("Рыба двинулась в сторону: "+n);
      }
 }

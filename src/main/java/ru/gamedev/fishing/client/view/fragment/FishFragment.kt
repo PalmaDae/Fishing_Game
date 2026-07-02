@@ -3,7 +3,7 @@ package ru.gamedev.fishing.client.view.fragment
 import javafx.geometry.Pos
 import javafx.scene.paint.Color
 import jdk.internal.foreign.abi.SharedUtils.alignment
-import ru.gamedev.fishing.client.model.FishEntity
+import ru.gamedev.fishing.client.entity.FishEntity
 import tornadofx.Fragment
 import tornadofx.circle
 import tornadofx.label

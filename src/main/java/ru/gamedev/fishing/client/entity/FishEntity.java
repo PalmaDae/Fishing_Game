@@ -4,6 +4,7 @@ public class FishEntity {
     private int cost;
     private String name;
     private int resistance;
+    private PositionEntity position;
 
     public FishEntity(int cost,String name,int resistance){
         this.cost=cost;
@@ -14,6 +15,7 @@ public class FishEntity {
     public String getName() {
         return name;
     }
+
 
     public void move(String n){
          System.out.println("Рыба двинулась в сторону: "+n);

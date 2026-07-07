@@ -18,21 +18,4 @@ public enum FishRares {
     public int getChance(){return chance;}
     public String getName(){return rarityName;}
 
-    public static int getObshiyChance(FishRares a){
-        switch(a){
-            case RARE -> {
-                return 15;
-            }
-            case EPIC -> {
-                return 5;
-            }
-            case LEGENDARY -> {
-                return 1;
-            }
-            case DALDONIO -> {
-                return 0;
-            }
-        }
-    return -1;
-    }
 }

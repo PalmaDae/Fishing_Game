@@ -18,6 +18,7 @@ public enum FishRares {
     public int getChance(){return chance;}
     public String getName(){return rarityName;}
 
+    //general
     public static int getObshiyChance(FishRares a){
         switch(a){
             case RARE -> {
@@ -33,6 +34,6 @@ public enum FishRares {
                 return 0;
             }
         }
-    return -1;
+        return -1;
     }
 }

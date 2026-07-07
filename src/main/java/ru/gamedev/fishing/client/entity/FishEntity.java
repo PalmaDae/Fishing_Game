@@ -18,4 +18,9 @@ public class FishEntity {
     public void move(String n){
          System.out.println("Рыба двинулась в сторону: "+n);
      }
+
+    @Override
+    public String toString() {
+        return "FishEntity{" + "name=" + name + '}';
+    }
 }

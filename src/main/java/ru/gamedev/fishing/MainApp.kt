@@ -7,5 +7,4 @@ import tornadofx.launch
 class MyApp : App(MainScreen::class)
 
 fun main() {
-    launch<MyApp>()
 }

@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 public class LakeEntity {
-    private int lakeXSize;
-    private int lakeYSize;
+    private FishEntity[][] lakeSize;
     private int lakeStartX;
     private int lakeStartY;
     private List<FishEntity> fishList;
@@ -18,8 +17,7 @@ public class LakeEntity {
     private LakeType type;
 
     public LakeEntity(int lakeXSize,int lakeYSize,int lakeStartX,int lakeStartY,String nameLake,int numberOfFish){
-        this.lakeXSize=lakeXSize;
-        this.lakeYSize=lakeYSize;
+        this.lakeSize=new FishEntity[lakeYSize][lakeXSize];
         this.nameLake=nameLake;
         this.lakeStartX=lakeStartX;
         this.lakeStartY=lakeStartY;
@@ -47,10 +45,11 @@ public class LakeEntity {
              else {
                 random2 = random.nextInt(FishDefaults.getEndRarity(FishRares.DEFAULT) + 1);
             }
-            int x=(int)(Math.random()*(lakeXSize-lakeStartX+1)+lakeStartX);
-            int y=(int)(Math.random()*(lakeYSize-lakeStartY+1)+lakeStartY);
+            int x=random.nextInt(lakeSize[0].length);
+            int y=random.nextInt(lakeSize.length);
 
             fishOfTheLake.add(new FishEntity(allFishes[random2], x, y));
+            lakeSize[y][x]= new FishEntity(allFishes[random2],x,y);
         }
         return fishOfTheLake;
     }
@@ -61,5 +60,8 @@ public class LakeEntity {
     }
     public FishEntity getFish(int i){
         return fishList.get(i);
+    }
+    public FishEntity[][] getLakeMatrix(){
+        return lakeSize;
     }
 }

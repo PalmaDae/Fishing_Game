@@ -7,7 +7,7 @@ public class FishService {
     public static int getStartRarity(FishRares a) {
 
         for (FishDefaults daldon : FishDefaults.values()) {
-            if (daldon.rarity == a) {
+            if (daldon.getRarity() == a) {
                 return daldon.ordinal();
             }
         }
@@ -17,12 +17,12 @@ public class FishService {
         boolean areRarityRight=false;
         FishDefaults fishdef=null;
         for(FishDefaults daldon: FishDefaults.values()){
-            if(daldon.rarity==a && areRarityRight==false){
+            if(daldon.getRarity()==a && areRarityRight==false){
                 areRarityRight=true;
                 System.out.println();
-            }else if (daldon.rarity==a && areRarityRight==true){
+            }else if (daldon.getRarity()==a && areRarityRight==true){
                 fishdef=daldon;
-            }else if (daldon.rarity!=a && areRarityRight==true){
+            }else if (daldon.getRarity()!=a && areRarityRight==true){
                 return fishdef.ordinal();
             }
         }

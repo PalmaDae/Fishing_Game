@@ -1,11 +1,12 @@
 package ru.gamedev.fishing.client.service;
 
+import org.jetbrains.annotations.NotNull;
 import ru.gamedev.fishing.client.entity.FishEntity;
 import ru.gamedev.fishing.client.entity.enums.FishRares;
 
 public class RarityService {
 
-    public static int getCommonLowestChance(FishRares a){
+    public static int getCommonLowestChance(@NotNull FishRares a){
         switch(a){
             case RARE -> {
                 return (100-FishRares.RARE.getChance()-FishRares.DEFAULT.getChance());

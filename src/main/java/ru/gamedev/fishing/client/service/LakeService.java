@@ -32,8 +32,8 @@ public class LakeService {
     }
 
     public void fishCreate (int numberOfFish, LakeEntity lake) {
-
-        for(int i=0;i<numberOfFish;i++){
+        int numberOfFishes=0;
+        for(int i=0;(i<numberOfFish)&&(numberOfFishes<lake.getLakeMatrix().length*lake.getLakeMatrix()[0].length);i++){
             FishEntity[][] matrix=lake.getLakeMatrix();
             FishDefaults[] allFishes=FishDefaults.values();
 
@@ -55,7 +55,7 @@ public class LakeService {
             int[] randomizer=getRandomMatrixCoordinate(matrix);
             if (randomizer[0]!=-1) {
                 matrix[randomizer[1]][randomizer[0]] = new FishEntity(allFishes[random2], randomizer[0], randomizer[1]);
-
+                numberOfFishes++;
             }else {
                 System.out.print("Пустые координаты");
                 i--;

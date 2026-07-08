@@ -1,7 +1,7 @@
 package ru.gamedev.fishing.client.entity.enums;
 
 
-public enum FishDefaults {
+public enum FishDefaults implements BestiaryCommon{
     SALMON("Лососось",FishRares.DEFAULT,50),
     CRAB("Краб",FishRares.DEFAULT,80),
     LOBSTER("Лобстер", FishRares.DEFAULT,150),
@@ -20,17 +20,21 @@ public enum FishDefaults {
     private final String name;
     private final FishRares rarity;
     private final int cost;
-
+    private LakeType lakeType;
 
     FishDefaults(String name,FishRares rarity,int cost){
         this.name=name;
         this.rarity=rarity;
         this.cost=cost;
+        this.lakeType=LakeType.DEFAULT_LAKE;
     }
-
+    @Override
     public String getName(){ return name;}
+    @Override
     public FishRares getRarity(){return  rarity;}
+    @Override
     public int getCost(){return cost;}
+    @Override
     public int getChanse(){return rarity.getChance();}
 
 }

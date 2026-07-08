@@ -1,14 +1,15 @@
 package ru.gamedev.fishing.client.entity;
 
+import ru.gamedev.fishing.client.entity.enums.BestiaryCommon;
 import ru.gamedev.fishing.client.entity.enums.FishDefaults;
 import ru.gamedev.fishing.client.entity.enums.FishRares;
 
 public class FishEntity {
-    private FishDefaults name;
+    private BestiaryCommon name;
     private int positionX;
     private int positionY;
 
-    public FishEntity(FishDefaults name,int positionX,int positionY){
+    public FishEntity(BestiaryCommon name,int positionX,int positionY){
         this.name=name;
         this.positionX=positionX;
         this.positionY=positionY;

@@ -2,8 +2,10 @@ package ru.gamedev.fishing.client.service;
 
 import ru.gamedev.fishing.client.entity.FishEntity;
 import ru.gamedev.fishing.client.entity.LakeEntity;
+import ru.gamedev.fishing.client.entity.enums.BestiaryCommon;
 import ru.gamedev.fishing.client.entity.enums.FishDefaults;
 import ru.gamedev.fishing.client.entity.enums.FishRares;
+import ru.gamedev.fishing.client.entity.enums.LakeType;
 
 import java.util.Random;
 
@@ -34,27 +36,33 @@ public class LakeService {
     public void fishCreate (int numberOfFish, LakeEntity lake) {
         int numberOfFishes=0;
 
+        LakeType lakeType=lake.getLakeType();
+        BestiaryCommon[] bestiary;
+
+        switch (lakeType){
+            default -> {bestiary=FishDefaults.values();
+            }
+        }
+
         for (int i=0; (i<numberOfFish) && (numberOfFishes<lake.getLakeMatrix().length*lake.getLakeMatrix()[0].length);i++){
             FishEntity[][] matrix=lake.getLakeMatrix();
-            FishDefaults[] allFishes=FishDefaults.values();
-
             int random2=random.nextInt(101);
 
             if (random2< 100- FishRares.DEFAULT.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.RARE)){
-                random2=random.nextInt(FishDeafultService.getStartRarity(FishRares.RARE),FishDeafultService.getEndRarity(FishRares.RARE)+1);
+                random2=random.nextInt(FishService.getStartRarity(bestiary,FishRares.RARE),FishService.getEndRarity(bestiary,FishRares.RARE)+1);
             } else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.EPIC)){
-                random2=random.nextInt(FishDeafultService.getStartRarity(FishRares.EPIC),FishDeafultService.getEndRarity(FishRares.EPIC)+1);
+                random2=random.nextInt(FishService.getStartRarity(bestiary,FishRares.EPIC),FishService.getEndRarity(bestiary,FishRares.EPIC)+1);
             } else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()-FishRares.EPIC.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.LEGENDARY)){
-                random2=random.nextInt(FishDeafultService.getStartRarity(FishRares.LEGENDARY),FishDeafultService.getEndRarity(FishRares.LEGENDARY)+1);
+                random2=random.nextInt(FishService.getStartRarity(bestiary,FishRares.LEGENDARY),FishService.getEndRarity(bestiary,FishRares.LEGENDARY)+1);
             } else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()-FishRares.EPIC.getChance()-FishRares.LEGENDARY.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.DALDONIO)) {
-                random2 = random.nextInt(FishDeafultService.getStartRarity(FishRares.DALDONIO), FishDeafultService.getEndRarity(FishRares.DALDONIO)+1 );
+                random2 = random.nextInt(FishService.getStartRarity(bestiary,FishRares.DALDONIO), FishService.getEndRarity(bestiary,FishRares.DALDONIO)+1 );
             } else {
-                random2 = random.nextInt(FishDeafultService.getEndRarity(FishRares.DEFAULT) + 1);
+                random2 = random.nextInt(FishService.getEndRarity(bestiary,FishRares.DEFAULT) + 1);
             }
 
             int[] randomizer=getRandomMatrixCoordinate(matrix);
             if (randomizer[0]!=-1) {
-                matrix[randomizer[1]][randomizer[0]] = new FishEntity(allFishes[random2], randomizer[0], randomizer[1]);
+                matrix[randomizer[1]][randomizer[0]] = new FishEntity(bestiary[random2], randomizer[0], randomizer[1]);
                 numberOfFishes++;
             } else {
                 System.out.print("Пустые координаты");

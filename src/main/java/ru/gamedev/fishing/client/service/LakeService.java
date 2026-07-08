@@ -8,10 +8,10 @@ import ru.gamedev.fishing.client.entity.enums.FishRares;
 import java.util.Random;
 
 public class LakeService {
-    private final Random random;
+    private Random random;
 
-    public LakeService(Random random) {
-        this.random = random;
+    public LakeService() {
+
     }
 
     public int[] getRandomMatrixCoordinate(FishEntity[][] matrix){
@@ -48,8 +48,7 @@ public class LakeService {
                 random2=random.nextInt(FishDeafultService.getStartRarity(FishRares.LEGENDARY),FishDeafultService.getEndRarity(FishRares.LEGENDARY)+1);
             } else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()-FishRares.EPIC.getChance()-FishRares.LEGENDARY.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.DALDONIO)) {
                 random2 = random.nextInt(FishDeafultService.getStartRarity(FishRares.DALDONIO), FishDeafultService.getEndRarity(FishRares.DALDONIO)+1 );
-            }
-            else {
+            } else {
                 random2 = random.nextInt(FishDeafultService.getEndRarity(FishRares.DEFAULT) + 1);
             }
 
@@ -57,7 +56,7 @@ public class LakeService {
             if (randomizer[0]!=-1) {
                 matrix[randomizer[1]][randomizer[0]] = new FishEntity(allFishes[random2], randomizer[0], randomizer[1]);
                 numberOfFishes++;
-            }else {
+            } else {
                 System.out.print("Пустые координаты");
                 i--;
             }

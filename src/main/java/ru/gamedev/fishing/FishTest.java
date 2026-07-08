@@ -7,11 +7,9 @@ import java.util.Random;
 
 public class FishTest {
     public static void main(String[] args) {
-        Random myRandom = new Random();
+        LakeService lakeService=new LakeService();
 
-        LakeService lakeService=new LakeService(myRandom);
-
-        LakeEntity daldonLake=new LakeEntity(10,10,0,0,"Озеро далдона");
+        LakeEntity daldonLake = new LakeEntity(10,10,0,0,"Озеро далдона");
 
         lakeService.fishCreate(25,daldonLake);
 

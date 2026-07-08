@@ -24,7 +24,6 @@ public class FishDeafultService {
         for (FishDefaults daldon: FishDefaults.values()){
             if (daldon.getRarity()==a && areRarityRight==false){
                 areRarityRight=true;
-                System.out.println();
             } else if (daldon.getRarity()==a && areRarityRight==true){
                 fishdef=daldon;
             } else if (daldon.getRarity()!=a && areRarityRight==true){

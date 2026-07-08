@@ -8,7 +8,7 @@ import ru.gamedev.fishing.client.entity.enums.FishRares;
 import java.util.Random;
 
 public class LakeService {
-    private Random random;
+    private Random random = new Random();
 
     public LakeService() {
 

@@ -1,23 +1,39 @@
 package ru.gamedev.fishing.client.view.screen
 
+import ru.gamedev.fishing.client.controller.GameController
 import ru.gamedev.fishing.client.controller.LakeController
 import ru.gamedev.fishing.client.entity.enums.FishDefaults
 import ru.gamedev.fishing.client.entity.FishEntity
 import ru.gamedev.fishing.client.view.fragment.FishFragment
 import tornadofx.View
+import tornadofx.gridpane
 import tornadofx.vbox
 
 class GameScreen : View("Game Screen") {
-    private val lakeController = LakeController()
 
-    override val root = vbox {
-        val currentLake = lakeController.getLakeField();
+    private val gameController = GameController()
 
-        val misha = FishEntity(FishDefaults.SALMON,0,0)
+    override val root = gridpane {
+        val lake = gameController.startGame()
+        val matrix = lake.lakeMatrix
 
-        val fishParams = mapOf(FishFragment::fish to misha)
-        val fishSpawn = find<FishFragment>(fishParams)
+        for (y in matrix.indices) {
+            for (x in matrix[y].indices) {
 
-        add(fishSpawn)
+                val fish = matrix[y][x]
+
+                if (fish != null) {
+                    val fishFragment = find<FishFragment>(
+                        FishFragment::fish to fish
+                    )
+
+                    add(
+                        fishFragment.root,
+                        x,
+                        y
+                    )
+                }
+            }
+        }
     }
 }

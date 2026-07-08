@@ -6,6 +6,7 @@ public class FishEntity {
     private FishDefaults name;
     private int positionX;
     private int positionY;
+
     public FishEntity(FishDefaults name,int positionX,int positionY){
         this.name=name;
         this.positionX=positionX;

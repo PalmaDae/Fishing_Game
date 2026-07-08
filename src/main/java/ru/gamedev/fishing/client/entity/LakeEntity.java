@@ -22,4 +22,8 @@ public class LakeEntity {
     public FishEntity[][] getLakeMatrix(){
         return lakeSize;
     }
+
+    public FishEntity[][] getLakeSize() {
+        return lakeSize;
+    }
 }

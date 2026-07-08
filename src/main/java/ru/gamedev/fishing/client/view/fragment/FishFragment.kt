@@ -11,24 +11,29 @@ import tornadofx.px
 import tornadofx.style
 import tornadofx.vbox
 
-class FishFragment() : Fragment(){
+class FishFragment : Fragment() {
+
     val fish: FishEntity by param()
 
     override val root = vbox {
         alignment = Pos.CENTER
         spacing = 5.0
 
+        prefWidth = 60.0
+        prefHeight = 60.0
+
         circle(radius = 15.0) {
             fill = Color.RED
         }
 
         label(fish.name) {
-            style { fontSize = 10.px }
+            style {
+                fontSize = 10.px
+            }
         }
 
         setOnMouseClicked {
-            println("You clicked on Fish")
+            println("You clicked on ${fish.name}")
         }
     }
-
 }

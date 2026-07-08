@@ -4,6 +4,7 @@ import javafx.geometry.Pos
 import javafx.scene.paint.Color
 import jdk.internal.foreign.abi.SharedUtils.alignment
 import ru.gamedev.fishing.client.entity.FishEntity
+import ru.gamedev.fishing.client.entity.enums.FishRares
 import tornadofx.Fragment
 import tornadofx.circle
 import tornadofx.label
@@ -23,7 +24,13 @@ class FishFragment : Fragment() {
         prefHeight = 60.0
 
         circle(radius = 15.0) {
-            fill = Color.RED
+            fill = when (fish.rare) {
+                FishRares.DEFAULT -> Color.GRAY
+                FishRares.RARE -> Color.BLUE
+                FishRares.EPIC -> Color.PURPLE
+                FishRares.LEGENDARY -> Color.GOLD
+                FishRares.DALDONIO -> Color.RED
+            }
         }
 
         label(fish.name) {

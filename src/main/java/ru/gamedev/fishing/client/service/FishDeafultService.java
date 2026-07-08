@@ -18,14 +18,16 @@ public class FishDeafultService {
 
     public static int getEndRarity(FishRares a) {
         boolean areRarityRight=false;
+
         FishDefaults fishdef=null;
-        for(FishDefaults daldon: FishDefaults.values()){
-            if(daldon.getRarity()==a && areRarityRight==false){
+
+        for (FishDefaults daldon: FishDefaults.values()){
+            if (daldon.getRarity()==a && areRarityRight==false){
                 areRarityRight=true;
                 System.out.println();
-            }else if (daldon.getRarity()==a && areRarityRight==true){
+            } else if (daldon.getRarity()==a && areRarityRight==true){
                 fishdef=daldon;
-            }else if (daldon.getRarity()!=a && areRarityRight==true){
+            } else if (daldon.getRarity()!=a && areRarityRight==true){
                 return fishdef.ordinal();
             }
         }

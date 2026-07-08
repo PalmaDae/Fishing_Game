@@ -1,5 +1,6 @@
-package ru.gamedev.fishing.client.entity;
+package ru.gamedev.fishing;
 
+import ru.gamedev.fishing.client.entity.LakeEntity;
 import ru.gamedev.fishing.client.service.LakeService;
 
 import java.util.Random;

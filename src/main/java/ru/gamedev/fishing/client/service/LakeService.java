@@ -33,7 +33,8 @@ public class LakeService {
 
     public void fishCreate (int numberOfFish, LakeEntity lake) {
         int numberOfFishes=0;
-        for(int i=0;(i<numberOfFish)&&(numberOfFishes<lake.getLakeMatrix().length*lake.getLakeMatrix()[0].length);i++){
+
+        for (int i=0; (i<numberOfFish) && (numberOfFishes<lake.getLakeMatrix().length*lake.getLakeMatrix()[0].length);i++){
             FishEntity[][] matrix=lake.getLakeMatrix();
             FishDefaults[] allFishes=FishDefaults.values();
 
@@ -41,11 +42,11 @@ public class LakeService {
 
             if (random2< 100- FishRares.DEFAULT.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.RARE)){
                 random2=random.nextInt(FishDeafultService.getStartRarity(FishRares.RARE),FishDeafultService.getEndRarity(FishRares.RARE)+1);
-            }else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.EPIC)){
+            } else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.EPIC)){
                 random2=random.nextInt(FishDeafultService.getStartRarity(FishRares.EPIC),FishDeafultService.getEndRarity(FishRares.EPIC)+1);
-            }else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()-FishRares.EPIC.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.LEGENDARY)){
+            } else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()-FishRares.EPIC.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.LEGENDARY)){
                 random2=random.nextInt(FishDeafultService.getStartRarity(FishRares.LEGENDARY),FishDeafultService.getEndRarity(FishRares.LEGENDARY)+1);
-            }else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()-FishRares.EPIC.getChance()-FishRares.LEGENDARY.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.DALDONIO)) {
+            } else if (random2< 100-FishRares.DEFAULT.getChance()-FishRares.RARE.getChance()-FishRares.EPIC.getChance()-FishRares.LEGENDARY.getChance()&&random2>=RarityService.getCommonLowestChance(FishRares.DALDONIO)) {
                 random2 = random.nextInt(FishDeafultService.getStartRarity(FishRares.DALDONIO), FishDeafultService.getEndRarity(FishRares.DALDONIO)+1 );
             }
             else {

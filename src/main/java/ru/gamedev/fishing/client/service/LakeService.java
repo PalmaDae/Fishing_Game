@@ -61,11 +61,11 @@ public class LakeService {
             }
 
             int[] randomizer=getRandomMatrixCoordinate(matrix);
-            if (randomizer[0]!=-1) {
+            if (randomizer[0]!=-1&&randomizer[1]!=0) {
                 matrix[randomizer[1]][randomizer[0]] = new FishEntity(bestiary[random2], randomizer[0], randomizer[1]);
                 numberOfFishes++;
             } else {
-                System.out.print("Пустые координаты");
+                System.out.println("Пустые координаты");
                 i--;
             }
         }

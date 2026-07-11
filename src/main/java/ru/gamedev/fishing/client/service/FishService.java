@@ -1,8 +1,12 @@
 package ru.gamedev.fishing.client.service;
 
+import ru.gamedev.fishing.client.entity.FishEntity;
+import ru.gamedev.fishing.client.entity.LakeEntity;
 import ru.gamedev.fishing.client.entity.enums.BestiaryCommon;
+import ru.gamedev.fishing.client.entity.enums.Directions;
 import ru.gamedev.fishing.client.entity.enums.FishDefaults;
 import ru.gamedev.fishing.client.entity.enums.FishRares;
+
 
 public class FishService {
 
@@ -33,4 +37,6 @@ public class FishService {
         }
         return -1;
     }
+
+
 }

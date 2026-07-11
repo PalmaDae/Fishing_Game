@@ -23,9 +23,5 @@ public class LakeEntity {
         return lakeSize;
     }
 
-    public FishEntity[][] getLakeSize() {
-        return lakeSize;
-    }
-
     public LakeType getLakeType(){return type;}
 }
